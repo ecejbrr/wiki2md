@@ -14,6 +14,7 @@ npm -g install wiki2md
 * [[url|des]], url 
 * &lt;code&gt;
 * * list 
+* ^ table 
 
 ## Test
 
