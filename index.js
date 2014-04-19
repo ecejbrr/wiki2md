@@ -3,7 +3,7 @@ var headingTpl = '##############';
 var codeReg = /<code(?:\s+([^>]+))?>([\s\S]*?)<\/code>/;
 var urlReg = /\[\[([^|]+)\|([^\]]+)?\]\]/;
 var lineBreakReg = /\\\\\n/;
-var listReg = /^(\s+)?\* (.*)/;
+var listReg = /^(\s{2,})(\*|-) (.*)/;
 var inlineCommentReg = /''([^']+)''/;
 
 
@@ -50,6 +50,22 @@ function wiki2md(wiki) {
             }
         }
 
+        //list
+        if (getChar() == ' ') {
+            tmp = source.match(listReg)
+            if (tmp) {
+                rst += tmp[1].replace(/^\s\s/,'')
+                rst += tmp[2] == '*' ? '*' : '1.'
+                rst += ' '
+                rst += tmp[3]
+                curPos += tmp[0].length
+            } else {
+                rst += ' '
+                curPos++
+            }
+        }
+
+        //inlineComment
         if (getChar() == '\'') {
             tmp = source.match(inlineCommentReg)
             if (tmp) {
@@ -83,18 +99,6 @@ function wiki2md(wiki) {
                 curPos++
             }
         }
-
-        //list
-        //if (getChar==' ') {
-        //    tmp = source.match(urlReg)
-        //    if (tmp) {
-        //        console.log(tmp);
-        //        curPos += tmp[0].length
-        //    } else {
-        //        rst += ' '
-        //        curPos++
-        //    }
-        //}
 
         //normal text
         if (getChar() !== '') {

@@ -82,13 +82,39 @@ describe('wiki2md', function() {
     })
 
     it('inline comment is ok', function() {
-
         input = '将以下代码放置到页面\'\'<body>\'\'标签后。'
         output = '将以下代码放置到页面`<body>`标签后。'
 
         assert.equal(wiki2md(input), output);
     })
 
+    it('list is ok', function() {
+        input = '\
+          * hello\n\
+          * world\n\
+           * good\n\
+          * boy '
+        output = '\
+        * hello\n\
+        * world\n\
+         * good\n\
+        * boy '
+
+        assert.equal(wiki2md(input), output);
+
+        input = '\
+          - hello\n\
+          - world\n\
+            - good\n\
+          - boy '
+        output = '\
+        1. hello\n\
+        1. world\n\
+          1. good\n\
+        1. boy '
+
+        assert.equal(wiki2md(input), output);
+    })
 
     it('real example is ok', function() {
         input =
