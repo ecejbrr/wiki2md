@@ -165,15 +165,15 @@ describe('wiki2md', function() {
     it('simple table support', function() {
         input = '\
             ^ 域名      ^ 用途     ^接口人     ^\n\
-    | p.tanx.com    | 21321312j        | 空 |\n\
-    | cdn.tanx.com    | sjdfljsdfljsdlfjsdlf | 胡 |\n'
+    | 123.com    | 21321312j        | 空 |\n\
+    | 456.com  | sjdfljsdfljsdlfjsdlf | 胡 |\n'
 
 
         output = '\
             | 域名      | 用途     |接口人     |\n\
 | ----- | ----- | ----- |\n\
-    | p.tanx.com    | 21321312j        | 空 |\n\
-    | cdn.tanx.com    | sjdfljsdfljsdlfjsdlf | 胡 |\n'
+    | 123.com    | 21321312j        | 空 |\n\
+    | 456.com  | sjdfljsdfljsdlfjsdlf | 胡 |\n'
         assert.equal(wiki2md(input), output);
     })
 })
