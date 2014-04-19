@@ -1,9 +1,9 @@
-var headingReg = /^(={1,6})([^=]+)\1/;
+var headingReg = /^(={1,6})([^=\n]+)\1/;
 var headingTpl = '##############';
-var codeReg = /<code(?:\s+([^>]+))?>([\s\S]*?)<\/code>/;
+var codeReg = /^<code(?:\s+([^>]+))?>([\s\S]*?)<\/code>/;
 var urlReg = /\[\[([^|]+)\|([^\]]+)?\]\]/;
 var lineBreakReg = /\\\\\n/;
-var listReg = /^(\s{2,})(\*|-) (.*)/;
+var listReg = /^(\s{2,})(\*|-) ([^\n]*)/;
 var inlineCommentReg = /''([^']+)''/;
 
 

@@ -34,6 +34,10 @@ describe('wiki2md', function() {
         input = '= hello =\n==hello=='
         output = '###### hello \n#####hello'
         assert.equal(wiki2md(input), output);
+
+        input = 'hello=123\ngood=7'
+        output = 'hello=123\ngood=7'
+        assert.equal(wiki2md(input), output);
     });
 
     it('url is ok', function() {
