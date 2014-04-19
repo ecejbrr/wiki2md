@@ -1,0 +1,21 @@
+{
+  "name": "wiki2md",
+  "version": "0.0.1",
+  "description": "A simple wiki to markdown tools",
+  "main": "index.js",
+  "bin": {
+    "wiki2md": "./bin/wiki2md"
+  },
+  "author": {
+    "name": "Jser.me",
+    "url": "http://jser.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jserme/wiki2md"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "commander": "~2.2.0"
+  }
+}
