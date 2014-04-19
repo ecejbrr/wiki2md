@@ -6,6 +6,9 @@ var lineBreakReg = /\\\\\n/;
 var listReg = /^(\s{2,})(\*|-) ([^\n]*)/;
 var inlineCommentReg = /''([^']+)''/;
 
+var tableHead = /\^([^\n]*)\^/;
+var tableRow = /\|([^\n]*)\|/;
+
 
 function wiki2md(wiki) {
     var start = 0;
@@ -54,7 +57,7 @@ function wiki2md(wiki) {
         if (getChar() == ' ') {
             tmp = source.match(listReg)
             if (tmp) {
-                rst += tmp[1].replace(/^\s\s/,'')
+                rst += tmp[1].replace(/^\s\s/, '')
                 rst += tmp[2] == '*' ? '*' : '1.'
                 rst += ' '
                 rst += tmp[3]
@@ -96,6 +99,20 @@ function wiki2md(wiki) {
                 curPos += tmp[0].length
             } else {
                 rst += '\\'
+                curPos++
+            }
+        }
+
+        //table head
+        if (getChar() == '^') {
+            tmp = source.match(tableHead)
+            if (tmp) {
+                rst += tmp[0].replace(/\^/g, '|')
+                rst += '\n'
+                rst += tmp[0].replace(/[^\^]/g, '').replace(/\^/g, '|').split('').join(' ----- ')
+                curPos += tmp[0].length
+            } else {
+                rst += '^'
                 curPos++
             }
         }
