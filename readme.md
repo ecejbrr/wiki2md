@@ -8,6 +8,13 @@ A simple wiki to markdown tool.
 npm -g install wiki2md
 ```
 
+## Support wiki Syntax 
+
+* ====, heading
+* [[url|des]], url 
+* <code> 
+* * list 
+
 ## Test
 
 ```bash
@@ -24,7 +31,6 @@ wiki2md test.wiki > test.md
 
 cat test.wiki | wiki2md
 ```
-
 
 ### Program
 
