@@ -1,6 +1,6 @@
 {
   "name": "wiki2md",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple wiki to markdown tools",
   "main": "index.js",
   "bin": {
