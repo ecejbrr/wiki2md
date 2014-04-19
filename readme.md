@@ -12,7 +12,7 @@ npm -g install wiki2md
 
 * ====, heading
 * [[url|des]], url 
-* <code> 
+* &lt;code&gt;
 * * list 
 
 ## Test
